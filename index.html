@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado Fácil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="topbar">
+
+        <a href="#" class="logo" onclick="voltarInicio()">
+            Mercado<span>Fácil</span>
+        </a>
+
+        <div class="search">
+            <input
+                type="text"
+                id="campoBusca"
+                placeholder="Buscar produtos..."
+                onkeyup="buscarProduto()"
+            >
+            <button onclick="buscarProduto()">🔍</button>
+        </div>
+
+        <div class="header-actions">
+            <button onclick="abrirLogin()">👤 Entrar</button>
+            <button onclick="abrirCarrinho()">🛒 Carrinho <span id="contador">0</span></button>
+        </div>
+
+    </div>
+
+    <nav class="menu">
+        <button onclick="filtrarCategoria('todos')">Todos</button>
+        <button onclick="filtrarCategoria('eletronicos')">Eletrônicos</button>
+        <button onclick="filtrarCategoria('celulares')">Celulares</button>
+        <button onclick="filtrarCategoria('informatica')">Informática</button>
+        <button onclick="filtrarCategoria('casa')">Casa</button>
+        <button onclick="filtrarCategoria('roupas')">Roupas</button>
+    </nav>
+</header>
+
+
+<main>
+
+    <section class="hero">
+        <div>
+            <p class="tag">OFERTAS DA SEMANA</p>
+            <h1>Encontre o que você precisa.</h1>
+            <p>Produtos selecionados com preços especiais.</p>
+
+            <button onclick="irParaProdutos()" class="hero-btn">
+                Ver ofertas
+            </button>
+        </div>
+    </section>
+
+
+    <section class="categorias">
+
+        <h2>Explore por categoria</h2>
+
+        <div class="categoria-grid">
+
+            <button onclick="filtrarCategoria('eletronicos')">
+                <span>🎧</span>
+                Eletrônicos
+            </button>
+
+            <button onclick="filtrarCategoria('celulares')">
+                <span>📱</span>
+                Celulares
+            </button>
+
+            <button onclick="filtrarCategoria('informatica')">
+                <span>💻</span>
+                Informática
+            </button>
+
+            <button onclick="filtrarCategoria('casa')">
+                <span>🏠</span>
+                Casa
+            </button>
+
+            <button onclick="filtrarCategoria('roupas')">
+                <span>👕</span>
+                Roupas
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="produtos" id="produtos">
+
+        <div class="section-title">
+            <div>
+                <h2>Produtos em destaque</h2>
+                <p id="resultadoTexto">Confira nossas ofertas</p>
+            </div>
+
+            <select id="ordenacao" onchange="ordenarProdutos()">
+                <option value="padrao">Ordenar</option>
+                <option value="menor">Menor preço</option>
+                <option value="maior">Maior preço</option>
+                <option value="nome">Nome</option>
+            </select>
+        </div>
+
+        <div id="listaProdutos" class="produto-grid"></div>
+
+    </section>
+
+</main>
+
+
+<!-- MODAL DO PRODUTO -->
+
+<div class="modal" id="modalProduto">
+
+    <div class="modal-content">
+
+        <button class="fechar" onclick="fecharModal('modalProduto')">
+            ×
+        </button>
+
+        <div id="detalhesProduto"></div>
+
+    </div>
+
+</div>
+
+
+<!-- CARRINHO -->
+
+<div class="modal" id="modalCarrinho">
+
+    <div class="modal-content carrinho-content">
+
+        <button class="fechar" onclick="fecharModal('modalCarrinho')">
+            ×
+        </button>
+
+        <h2>🛒 Meu carrinho</h2>
+
+        <div id="itensCarrinho"></div>
+
+        <div class="total">
+            <strong>Total:</strong>
+            <span id="totalCarrinho">R$ 0,00</span>
+        </div>
+
+        <button class="finalizar" onclick="finalizarCompra()">
+            Finalizar compra
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- LOGIN -->
+
+<div class="modal" id="modalLogin">
+
+    <div class="modal-content login-content">
+
+        <button class="fechar" onclick="fecharModal('modalLogin')">
+            ×
+        </button>
+
+        <h2>Entrar</h2>
+
+        <p class="login-info">
+            Área demonstrativa para o trabalho acadêmico.
+        </p>
+
+        <input type="email" placeholder="E-mail">
+
+        <input type="password" placeholder="Senha">
+
+        <button class="finalizar" onclick="loginDemo()">
+            Entrar
+        </button>
+
+        <p class="cadastro">
+            Ainda não possui conta? <b>Cadastre-se</b>
+        </p>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <div class="footer-container">
+
+        <div>
+            <h3>Mercado Fácil</h3>
+            <p>Projeto acadêmico de marketplace.</p>
+        </div>
+
+        <div>
+            <h3>Atendimento</h3>
+            <p>Central de ajuda</p>
+            <p>Contato</p>
+        </div>
+
+        <div>
+            <h3>Institucional</h3>
+            <p>Sobre nós</p>
+            <p>Termos de uso</p>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        Projeto acadêmico © 2026
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
